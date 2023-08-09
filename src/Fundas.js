@@ -26,7 +26,7 @@ function Fundas() {
         <div style={gridStyles}>
           {products.map(product => (
             <div key={product.id} style={productStyles}>
-              <img src={product.imageUrl} alt={product.name} style={{ maxWidth: '100%' }} />
+              <img src={product.imageUrl} alt={product.name} style={{ maxWidth: '90%' }} />
               <h3>{product.name}</h3>
               <p>{product.price}</p>
             </div>
