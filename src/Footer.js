@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   const footerStyles = {
-    backgroundColor: '#161933',
+    backgroundColor: 'rgb(85 84 84)',
     color: '#ffffff',
     padding: '20px 0',
     textAlign: 'center',

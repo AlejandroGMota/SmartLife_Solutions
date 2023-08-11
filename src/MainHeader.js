@@ -22,15 +22,10 @@ function MainHeader() {
 
   const toggleAudifonosMenu = () => {
     setIsAudifonosMenuOpen(!isAudifonosMenuOpen);
-  };
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  }; 
 
   const headerStyles = {
-    backgroundColor: '#252525',
+    backgroundColor: 'rgb(85 84 84)',
     boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
   };
 
@@ -57,7 +52,6 @@ function MainHeader() {
     fontSize: '24px',
     fontWeight: 'bold',
     color: '#e74c3c',
-    cursor: 'pointer',
     
   };
 
@@ -75,15 +69,12 @@ function MainHeader() {
     padding: '15px',
     margin: '20px',
     borderBottom: '1px solid rgb(221 221 221 / 39%)',
-    cursor: 'pointer'
-      
+
   };
 
   const menuStyles = {
     display: 'flex',
-    color: 'white',
-    cursor: 'pointer',
-    
+    color: 'white',    
   };
 
   const cartContainerStyles = {
@@ -102,6 +93,14 @@ function MainHeader() {
     marginLeft: '10px',
   };
 
+  const link1 = {
+    color:"#fff",
+    textDecoration: "none",
+  };
+
+
+  
+
   return (
     <div className="MainHeader">
       <header style={headerStyles}>
@@ -116,17 +115,14 @@ function MainHeader() {
 
           <div style={menuStyles}>
           <div style={menuItemStyles}>
-            <span  onClick={toggleFundaMenu}>Fundas</span>
-            {isFundaMenuOpen && (
-              <ul style={dropdownStyles}>
-                <li>Original</li>
-                <li>Personalizada</li>
-                <li>Transparente</li>
-              </ul>
-            )}
+            <a style={link1} href='#fundas'> 
+            <span  /*onClick={toggleFundaMenu} */ >Fundas</span>
+            </a>
           </div>
           <div style={menuItemStyles}>
+          <a style={link1} href='#micas'> 
             <span onClick={toggleMicasMenu}>Micas</span>
+            {/* 
             {isMicasMenuOpen && (
               <ul style={dropdownStyles}>
                 <li>Cristal templado</li>
@@ -134,9 +130,13 @@ function MainHeader() {
                 <li>Hidrogel</li>
               </ul>
             )}
+              */}
+              </a>
           </div>
           <div style={menuItemStyles}>
+          <a style={link1} href='#cargadores'> 
             <span onClick={toggleCargadoresMenu}>Cargadores</span>
+             {/* 
             {isCargadoresMenuOpen && (
               <ul style={dropdownStyles}>
                 <li>Alámbrico 5W</li>
@@ -144,9 +144,14 @@ function MainHeader() {
                 <li>Inalámbrico</li>
               </ul>
             )}
+              */} 
+              </a>
           </div>
           <div style={menuItemStyles}>
+          <a style={link1} href='#audifonos'> 
+
             <span onClick={toggleAudifonosMenu}>Audífonos</span>
+             {/* 
             {isAudifonosMenuOpen && (
               <ul style={dropdownStyles}>
                 <li>Airpods Pro</li>
@@ -154,14 +159,18 @@ function MainHeader() {
                 <li>Cable</li>
               </ul>
             )}
+              */}
+          </a>
+
           </div>
           </div>
 
           
 
           <div style={cartContainerStyles}>
-            <MyCartSVG />
-            <span style={cartCountStyles}>3</span> {/* Replace with actual cart count */}
+            {/*<MyCartSVG />
+            <span style={cartCountStyles}>3</span> { Replace with actual cart count}
+            */}
           </div>
         </div>
       </header>
