@@ -106,7 +106,7 @@ function MainHeader() {
       <header style={headerStyles}>
         <div style={appHeaderStyles}>
           <div style={logoContainerStyles}>
-            <img src="/logo.png" alt="Company Logo" style={logoStyles} />
+            <img src="/SmartLife_Solutions/logo.png" alt="Company Logo" style={logoStyles} />
             <h1 style={titleStyles} >
               SmartLife Solutions
             </h1>
