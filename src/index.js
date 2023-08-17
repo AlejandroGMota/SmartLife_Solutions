@@ -10,14 +10,14 @@ import Cargadores from './Cargadores';
 import Audifonos from './Audifonos';
 import Footer from './Footer';
 
-import ShoppingCart from './ShoppingCart';
+//import ShoppingCart from './ShoppingCart';
 
 
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const addToCart = (product, cartItems, setCartItems) => {
+/*const addToCart = (product, cartItems, setCartItems) => {
   console.log('Product added to cart:', product);
 
   const updatedCart = [...cartItems];
@@ -30,7 +30,7 @@ const addToCart = (product, cartItems, setCartItems) => {
   }
   
   setCartItems(updatedCart);
-};
+}; */
 
 root.render(
   <React.StrictMode>
@@ -38,7 +38,7 @@ root.render(
 
     
     <Caroussel />
-    <Fundas addToCart={addToCart}  />
+    <Fundas/>
     <Micas />
     <Cargadores />
     <Audifonos />
