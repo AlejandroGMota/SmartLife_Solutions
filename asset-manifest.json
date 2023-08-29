@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/SmartLife_Solutions/static/css/main.8d54c2d8.css",
-    "main.js": "/SmartLife_Solutions/static/js/main.fcf7db7f.js",
+    "main.css": "/SmartLife_Solutions/static/css/main.41ac3dd5.css",
+    "main.js": "/SmartLife_Solutions/static/js/main.1bbbdbb1.js",
     "static/js/787.61e544b7.chunk.js": "/SmartLife_Solutions/static/js/787.61e544b7.chunk.js",
     "static/media/image2.png": "/SmartLife_Solutions/static/media/image2.f9c7ab161ea8108fb76b.png",
     "static/media/image3.png": "/SmartLife_Solutions/static/media/image3.3cd2781e125cccc0851c.png",
@@ -21,12 +21,12 @@
     "static/media/12.jpeg": "/SmartLife_Solutions/static/media/12.94af7ed0e783ac452031.jpeg",
     "static/media/32.jpeg": "/SmartLife_Solutions/static/media/32.b779be15b0275d68ffe0.jpeg",
     "index.html": "/SmartLife_Solutions/index.html",
-    "main.8d54c2d8.css.map": "/SmartLife_Solutions/static/css/main.8d54c2d8.css.map",
-    "main.fcf7db7f.js.map": "/SmartLife_Solutions/static/js/main.fcf7db7f.js.map",
+    "main.41ac3dd5.css.map": "/SmartLife_Solutions/static/css/main.41ac3dd5.css.map",
+    "main.1bbbdbb1.js.map": "/SmartLife_Solutions/static/js/main.1bbbdbb1.js.map",
     "787.61e544b7.chunk.js.map": "/SmartLife_Solutions/static/js/787.61e544b7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8d54c2d8.css",
-    "static/js/main.fcf7db7f.js"
+    "static/css/main.41ac3dd5.css",
+    "static/js/main.1bbbdbb1.js"
   ]
 }
