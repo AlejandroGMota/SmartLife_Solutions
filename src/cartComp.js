@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function MyCartComp({cartItemsLength, updateCart}) {
+function MyCartComp({cartItemsState, updateCart}) {
+
+  const [isCartVisible, setIsCartVisible] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartVisible(!isCartVisible);
+  };
 
 
   
@@ -11,14 +17,37 @@ function MyCartComp({cartItemsLength, updateCart}) {
     fontWeight: 'bold',
     padding: '4px 8px',
     borderRadius: '50%',
-    marginLeft: '10px',
+    marginLeft: '10px',    
   };
+  const cartStyle = {
+    position: 'fixed',
+    bottom: '20px', // Adjust this value to control the vertical position
+    right: '20px', // Adjust this value to control the horizontal position
+    width: '300px', // Set the width of the floating window
+    backgroundColor: '#fff',
+    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
+    borderRadius: '5px',
+    zIndex: '1000', 
+  }
+
+
+  const cartItems = localStorage.getItem("Cart")? JSON.parse(localStorage.getItem("Cart")):[];
+  let TotalCart=0;
+
+  const TotalCartcal= ()=>{ for (let i = 0; i < cartItems.length; i++) {
+    TotalCart = TotalCart + (cartItems[i].Cant * cartItems[i].Precio)
+  }
+  return TotalCart;
+  }
+
 
 
   return (
-    <div>
+    <div  >
 
-   
+      <div onClick={toggleCart} onMouseOver={event => {event.target.style.cursor = 'pointer';}} >
+        
+      
       <svg
         width="18.3mm"
         height="14.4mm"
@@ -56,10 +85,31 @@ function MyCartComp({cartItemsLength, updateCart}) {
         </g>
       </svg>
 
-      <span style={cartCountStyles}>{cartItemsLength}</span> 
+      <span  style={cartCountStyles}>{cartItemsState}</span> 
 
-    </div>
+      </div>
 
+
+      {isCartVisible && (
+        <div style={cartStyle}>
+          <h2>Tu carrito</h2>
+
+          
+          <ol>
+            {cartItems.map((item, index) => ( 
+            <li key={index}>
+              {item.item} - Quantity: {item.Cant} - Price: ${item.Precio} - Total ${item.Precio * item.Cant} 
+              
+            </li>
+            ))}
+          </ol>
+
+        <p>Total: ${TotalCartcal()}</p>
+        </div>
+      )}
+       
+
+  </div>
 
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import MyCartComp from './cartComp';
 
-function MainHeader({cartItemsLength, updateCart}) {
+function MainHeader({cartItemsState, updateCart}) {
 
     const headerStyles = {
     position: 'fixed',
@@ -107,7 +107,7 @@ function MainHeader({cartItemsLength, updateCart}) {
           
 
           <div style={cartContainerStyles}>
-            <MyCartComp cartItemsLength={cartItemsLength} updateCart={updateCart} />
+            <MyCartComp cartItemsState ={cartItemsState} updateCart={updateCart} />
           </div>
         </div>
       </header>

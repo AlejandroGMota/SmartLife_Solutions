@@ -1,10 +1,10 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import i0 from './images/fundas/471.jpeg';
 import i1 from './images/fundas/51.jpeg';
 import i2 from './images/fundas/21.webp';
 
 
-function Micas() {
+function Micas({updateCart}) {
 
 
 
@@ -39,11 +39,11 @@ function Micas() {
         }
       }
       if (!match) {
-      fullCart.push(cartItem);  
+      fullCart.push(cartItem); updateCart();  
       }
     }
     else{
-      fullCart.push(cartItem)
+      fullCart.push(cartItem); updateCart();
     }
     
     

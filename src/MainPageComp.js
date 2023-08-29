@@ -11,22 +11,23 @@ import Footer from './Footer';
 
 function MainPageComp() {
 
-    const [cartItemsLength, setCartItemsLength] = useState(localStorage.getItem("Cart")?JSON.parse(localStorage.getItem("Cart")).length:0);
+
+    const [cartItemsState, setCartItemsState] = useState(localStorage.getItem("Cart")?JSON.parse(localStorage.getItem("Cart")).length:0);
     
   
-    const updateCart = () => setCartItemsLength(cartItemsLength+1)
+    const updateCart = () => setCartItemsState(cartItemsState+1)
 
   
   
     return (
 
     <div>
-    <MainHeader cartItemsLength={cartItemsLength} updateCart={updateCart} />
+    <MainHeader cartItemsState={cartItemsState} updateCart={updateCart} />
     <Caroussel />
     <Fundas updateCart={updateCart}  />
     <Micas updateCart={updateCart}  />
-    <Cargadores />
-    <Audifonos />
+    <Cargadores updateCart={updateCart}/>
+    <Audifonos updateCart={updateCart}/>
     <Footer />
     </div>
     );

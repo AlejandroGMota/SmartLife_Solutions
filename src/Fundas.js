@@ -84,24 +84,18 @@ function Fundas({updateCart}) {
           }
           if (!match) {
             console.log(match);
-          fullCart.push(cartItem);
-          updateCart();
+          fullCart.push(cartItem); updateCart();
           }
         }
         else{
-          fullCart.push(cartItem)
-          updateCart();
+          fullCart.push(cartItem); updateCart();
         }
         
-        console.log(fullCart);
 
         localStorage.setItem("Cart", JSON.stringify(fullCart) );
       }
 
-      const sendMessage = (product) => {
-        var waurlproduct = product.name.replace(/\s+/g, '%20');       
-        window.open('https://wa.me/527712384167?text=Me%20interesa%20este%20producto%20'+ waurlproduct);
-        }
+      
 
        
     
