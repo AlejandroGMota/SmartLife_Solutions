@@ -13,6 +13,7 @@ function Caroussel() {
     background: "#F5F5DC",
     width: "90vw" ,
     padding:"5vw",
+    paddingTop:"15vw",
 
   };
 

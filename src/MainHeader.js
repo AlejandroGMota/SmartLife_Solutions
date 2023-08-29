@@ -1,30 +1,13 @@
-import React, { useState } from 'react';
-import MyCartSVG from './cartComp';
+import React from 'react';
+import MyCartComp from './cartComp';
 
-function MainHeader() {
+function MainHeader({cartItemsLength, updateCart}) {
 
-  const [isFundaMenuOpen, setIsFundaMenuOpen] = useState(false);
-  const [isMicasMenuOpen, setIsMicasMenuOpen] = useState(false);
-  const [isCargadoresMenuOpen, setIsCargadoresMenuOpen] = useState(false);
-  const [isAudifonosMenuOpen, setIsAudifonosMenuOpen] = useState(false);
-
-  const toggleFundaMenu = () => {
-    setIsFundaMenuOpen(!isFundaMenuOpen);
-  };
-
-  const toggleMicasMenu = () => {
-    setIsMicasMenuOpen(!isMicasMenuOpen);
-  };
-
-  const toggleCargadoresMenu = () => {
-    setIsCargadoresMenuOpen(!isCargadoresMenuOpen);
-  };
-
-  const toggleAudifonosMenu = () => {
-    setIsAudifonosMenuOpen(!isAudifonosMenuOpen);
-  }; 
-
-  const headerStyles = {
+    const headerStyles = {
+    position: 'fixed',
+    top: 0,            
+    width: '100%',
+    zIndex:1000,
     backgroundColor: 'rgb(85 84 84)',
     boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
   };
@@ -55,16 +38,6 @@ function MainHeader() {
     
   };
 
-  const dropdownStyles = {
-    backgroundColor: '#bbb',
-    position: 'fixed',
-    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
-    zIndex: '1000',
-    
-    
-    
-  };
-
   const menuItemStyles = {
     padding: '15px',
     margin: '20px',
@@ -83,21 +56,13 @@ function MainHeader() {
     color: '#333',
   };
 
-  const cartCountStyles = {
-    backgroundColor: '#e74c3c',
-    color: 'white',
-    fontSize: '14px',
-    fontWeight: 'bold',
-    padding: '4px 8px',
-    borderRadius: '50%',
-    marginLeft: '10px',
-  };
 
   const link1 = {
     color:"#fff",
     textDecoration: "none",
   };
 
+  
 
   
 
@@ -108,7 +73,7 @@ function MainHeader() {
           <div style={logoContainerStyles}>
             <img src="/SmartLife_Solutions/logo.png" alt="Company Logo" style={logoStyles} />
             <h1 style={titleStyles} >
-              SmartLife Solutions
+              GAMACELL
             </h1>
           </div>
 
@@ -116,50 +81,24 @@ function MainHeader() {
           <div style={menuStyles}>
           <div style={menuItemStyles}>
             <a style={link1} href='#fundas'> 
-            <span  /*onClick={toggleFundaMenu} */ >Fundas</span>
+            <span>Fundas</span>
             </a>
           </div>
           <div style={menuItemStyles}>
           <a style={link1} href='#micas'> 
-            <span onClick={toggleMicasMenu}>Micas</span>
-            {/* 
-            {isMicasMenuOpen && (
-              <ul style={dropdownStyles}>
-                <li>Cristal templado</li>
-                <li>Cristal templado reforzado</li>
-                <li>Hidrogel</li>
-              </ul>
-            )}
-              */}
-              </a>
+            <span>Micas</span>
+          </a>
           </div>
           <div style={menuItemStyles}>
           <a style={link1} href='#cargadores'> 
-            <span onClick={toggleCargadoresMenu}>Cargadores</span>
-             {/* 
-            {isCargadoresMenuOpen && (
-              <ul style={dropdownStyles}>
-                <li>Alámbrico 5W</li>
-                <li>Alámbrico 20W</li>
-                <li>Inalámbrico</li>
-              </ul>
-            )}
-              */} 
-              </a>
+            <span >Cargadores</span>
+            </a>
           </div>
           <div style={menuItemStyles}>
           <a style={link1} href='#audifonos'> 
 
-            <span onClick={toggleAudifonosMenu}>Audífonos</span>
-             {/* 
-            {isAudifonosMenuOpen && (
-              <ul style={dropdownStyles}>
-                <li>Airpods Pro</li>
-                <li>Airpods 2da generación</li>
-                <li>Cable</li>
-              </ul>
-            )}
-              */}
+            <span>Audífonos</span>
+             
           </a>
 
           </div>
@@ -168,9 +107,7 @@ function MainHeader() {
           
 
           <div style={cartContainerStyles}>
-            {/*<MyCartSVG />
-            <span style={cartCountStyles}>3</span> { Replace with actual cart count}
-            */}
+            <MyCartComp cartItemsLength={cartItemsLength} updateCart={updateCart} />
           </div>
         </div>
       </header>

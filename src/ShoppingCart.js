@@ -1,36 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function ShoppingCart() {
-  const initialCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  const [cartItems, setCartItems] = useState(initialCartItems);
 
-  useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]);
+  const sendMessage = () => {
 
-  const addToCart = (product) => {
-    const updatedCart = [...cartItems];
-    const existingItem = updatedCart.find(item => item.id === product.id);
+    const a = localStorage.getItem("Cart");
 
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      updatedCart.push({ ...product, quantity: 1 });
-    }
+    var waurlproduct = a.name.replace(/\s+/g, '%20');       
+    window.open('https://wa.me/527712384167?text=Me%20interesa%20este%20producto%20'+ waurlproduct);
+  }
 
-    setCartItems(updatedCart);
-  };
-
-  const removeFromCart = (product) => {
-    const updatedCart = cartItems.filter(item => item.id !== product.id);
-    setCartItems(updatedCart);
-  };
-
-  const cartTotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  
 
   return (
     <div className="ShoppingCart">
       <h2>Your Shopping Cart</h2>
+
+      {/*
       <ul>
         {cartItems.map(item => (
           <li key={item.id}>
@@ -39,7 +25,11 @@ function ShoppingCart() {
           </li>
         ))}
       </ul>
+
+      
       <p>Total: ${cartTotal}</p>
+
+      */}
     </div>
   );
 }

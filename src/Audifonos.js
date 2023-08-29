@@ -65,7 +65,7 @@ function Audifonos() {
             <img src={product.imageUrl} alt={product.name} style={{ maxWidth: '90%' }} />
             <h3>{product.name}</h3>
             <p>{product.price}</p>
-            <button style={buttonStyles } onClick={() => messages(product)} onMouseOver={event => {event.target.style.backgroundColor = 'rgb(144 156 243)';}} onMouseOut={event => {event.target.style.backgroundColor = '#25D366';}}>Más información en WhatsApp </button> 
+            <button style={buttonStyles } onClick={() => messages(product)} onMouseOver={event => {event.target.style.backgroundColor = 'rgb(144 156 243)';}} onMouseOut={event => {event.target.style.backgroundColor = '#25D366';}}>Agregar al carrito 🛒 </button> 
 
           </div>
         ))}

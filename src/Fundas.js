@@ -8,9 +8,12 @@ import i5 from './images/fundas/3.jpeg';
 
 
 
-function Fundas({ addToCart }) {
+function Fundas({updateCart}) {
 
-    
+
+
+
+   
       const buttonStyles = {
         backgroundColor: '#25D366',
         color: 'white',
@@ -28,12 +31,12 @@ function Fundas({ addToCart }) {
 
 
       const products = [
-        { id: 1, name: 'Funda de silicón con MagSafe para el iPhone 14 - Azul tormenta', price: '$120', imageUrl: i0 },
-        { id: 2, name: 'Funda de silicón con MagSafe para el iPhone 14 - Agave azul', price: '$120', imageUrl: i1 },
-        { id: 3, name: 'Funda de silicón con MagSafe para el iPhone 14 - Color medianoche', price: '$120', imageUrl: i2 },
-        { id: 4, name: 'Funda Figura Series de OtterBox con MagSafe para el iPhone 14 Plus - Morado        ', price: '$24.99', imageUrl: i3 },
-        { id: 5, name: 'Funda de piel con tapa para el iPhone 11 Pro - Color frambuesa', price: '$180', imageUrl: i4 },
-        { id: 6, name: 'Funda de piel con tapa para el iPhone 11 Pro - Color berenjena', price: '$17.99', imageUrl: i5 },
+        { id: 1, name: 'Funda de silicón con MagSafe para el iPhone 14 - Azul tormenta', price: 120, imageUrl: i0 },
+        { id: 2, name: 'Funda de silicón con MagSafe para el iPhone 14 - Agave azul', price: 120, imageUrl: i1 },
+        { id: 3, name: 'Funda de silicón con MagSafe para el iPhone 14 - Color medianoche', price: 120, imageUrl: i2 },
+        { id: 4, name: 'Funda Figura Series de OtterBox con MagSafe para el iPhone 14 Plus - Morado', price: 24.99, imageUrl: i3 },
+        { id: 5, name: 'Funda de piel con tapa para el iPhone 11 Pro - Color frambuesa', price: 180, imageUrl: i4 },
+        { id: 6, name: 'Funda de piel con tapa para el iPhone 11 Pro - Color berenjena', price: 17.99, imageUrl: i5 },
       ];
     
       const gridStyles = {
@@ -58,16 +61,47 @@ function Fundas({ addToCart }) {
         fontFamily: "sans-serif"
       };
 
-      const messages = (product) => {
+      const addToCartConst = (product) => {
 
-        var waurlproduct = product.name.replace(/\s+/g, '%20');
         
-       
-          
-          console.log('https://wa.me/527712384167?text=Me%20interesa%20este%20producto%20'+ waurlproduct);
+        
 
-          window.open('https://wa.me/527712384167?text=Me%20interesa%20este%20producto%20'+ waurlproduct);
+        const fullCart = (localStorage.getItem('Cart'))? JSON.parse(localStorage.getItem('Cart')):[];
+
+   
+        const cart = localStorage.getItem("Cart");
+        const cartItem = {item:product.name, IdItem:product.id, Cant:1, Precio:product.price};
+        
+        if (localStorage.getItem('Cart')) {
+
+          let match= false;
+          for (let i = 0; i < JSON.parse(cart).length; i++) {
+            if (JSON.parse(cart)[i].IdItem === product.id) {
+              cartItem.Cant=JSON.parse(cart)[0].Cant;
+              fullCart[i].Cant++;
+              match=true;
+            }
+          }
+          if (!match) {
+            console.log(match);
+          fullCart.push(cartItem);
+          updateCart();
+          }
+        }
+        else{
+          fullCart.push(cartItem)
+          updateCart();
+        }
+        
+        console.log(fullCart);
+
+        localStorage.setItem("Cart", JSON.stringify(fullCart) );
       }
+
+      const sendMessage = (product) => {
+        var waurlproduct = product.name.replace(/\s+/g, '%20');       
+        window.open('https://wa.me/527712384167?text=Me%20interesa%20este%20producto%20'+ waurlproduct);
+        }
 
        
     
@@ -79,13 +113,14 @@ function Fundas({ addToCart }) {
               <div key={product.id} style={productStyles}>
                 <img src={product.imageUrl} alt={product.name} style={{ maxWidth: '90%' }} />
                 <h3>{product.name}</h3>
-                <p>{product.price}</p>
-                <button style={buttonStyles } onClick={() => messages(product)} onMouseOver={event => {event.target.style.backgroundColor = 'rgb(144 156 243)';}} onMouseOut={event => {event.target.style.backgroundColor = '#25D366';}}>Más información en WhatsApp </button> 
+                <p>${product.price}</p>
+                <button style={buttonStyles } onClick={() => addToCartConst( product)}  onMouseOver={event => {event.target.style.backgroundColor = 'rgb(144 156 243)';}} onMouseOut={event => {event.target.style.backgroundColor = '#25D366';}}>Agregar al carrito 🛒 </button> 
                 
                 
 
                 {/* <button onClick={() => addToCart(product)}>Add to Cart</button> */}
               </div>
+              
             ))}
           </div>
         </div>
